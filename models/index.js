@@ -12,5 +12,7 @@ mongoose.connect(DB_URI, {
 
   module.exports = {
   	Restaurant: require('./Restaurant'),
-  	Review: require('./Review')	
+  	Review: require('./Review'),
+    User: require('./User'),
+    Photo: require('./Photo')
   }

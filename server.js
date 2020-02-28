@@ -30,6 +30,8 @@ const TEMP_RESTAURANTS = [
 //RESTAURANT ROUTERS 
 app.use('/', routes.views);
 
+app.use('/api', routes.api);
+
 app.get('/restaurant', (req,res) => {
     res.json(TEMP_RESTAURANTS);
     console.log('in restaurants page');
