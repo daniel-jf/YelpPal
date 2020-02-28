@@ -5,6 +5,9 @@ const PORT = process.envPORT || 4000;
 const db = require('./models');
 const routes = require('./routes');
 
+// Init BodyParser
+app.use(bodyParser.json());
+
 //REQUEST LOGGER MIDDLEWEAR
 app.use((req,res,next) => {
     const url = req.url;
@@ -29,11 +32,6 @@ const TEMP_RESTAURANTS = [
 app.use('/', routes.views);
 
 app.use('/api', routes.api);
-
-app.get('/restaurant', (req,res) => {
-    res.json(TEMP_RESTAURANTS);
-    console.log('in restaurants page');
-});
 
 app.get('/restaurant/:name', (req, res) => {
     let result;
