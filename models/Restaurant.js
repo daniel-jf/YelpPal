@@ -8,3 +8,5 @@ const restaurantSchema = new mongoose.Schema({
 	photos: [String],
 	reviews: [Review.schema]
 });
+
+module.exports = mongoose.model('Restaurant', restaurantSchema);
