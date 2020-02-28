@@ -8,6 +8,7 @@ const routes = require('./routes');
 // Init BodyParser
 app.use(bodyParser.json());
 
+
 //REQUEST LOGGER MIDDLEWEAR
 app.use((req,res,next) => {
     const url = req.url;
