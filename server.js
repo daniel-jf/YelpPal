@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.envPORT || 4000;
 const db = require('./models');
+const routes = require('./routes');
 
 //REQUEST LOGGER MIDDLEWEAR
 app.use((req,res,next) => {
@@ -17,14 +18,32 @@ app.use((req,res,next) => {
     next();
 });
   
+const TEMP_RESTAURANTS = [
+    {name: 'Subway', description: 'sandwiches'},
+    {name:'Amazon Go', description: 'grocery store'},
+    {name: 'Chipotle', description: 'Mexican'},
+    {name: 'Sushirito', description: 'sushi burritos'}
+];
 
 //ROUTERS
-app.get('/', (req,res) =>{
-    res.send('We made it here');
-    console.log('server works');
+
+//RESTAURANT ROUTERS 
+app.use('/', routes.views);
+
+app.get('/restaurant', (req,res) => {
+    res.json(TEMP_RESTAURANTS);
+    console.log('in restaurants page');
 });
 
-
+app.get('/restaurant/:name', (req, res) => {
+    let result;
+    TEMP_RESTAURANTS.forEach((restaurant) => {
+        if (restaurant.name == req.params.name) {
+            result = restaurant;
+        }
+    })
+    res.json(result);
+});
 
 
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`));
