@@ -9,11 +9,17 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-	db.Restaurant.find({})
-}
+	db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
+		foundRestaurant.photos.forEach((photo, index) => {
+			if (photo._id == req.params.photoId) {
+				res.json(photo);
+			};		
+		});
+	});
+};
 
 const create = (req, res) => {
-
+	
 }
 
 const update = (req, res) => {

@@ -10,21 +10,6 @@ const users = [
 	password: "pass",
 }];
 
-const restaurants = [
-{
-	name: "Lily Cafe",
-	foodType: "Vegan",
-	photos: photos,
-	reviews: reviews
-},
-{
-	name: "Viva Cafe",
-	foodType: "Asian",
-	photos: photos,
-	reviews: reviews
-}];
-
-
 const photos = [
 {
 	image: "https://picsum.photos/300",
@@ -48,4 +33,26 @@ const reviews = [
 	description: "Portion is okay, but food tasted great",
 	postedBy: "Daniel"
 }];
+
+const restaurants = [
+{
+	name: "Lily Cafe",
+	foodType: "Vegan",
+	photos: photos,
+	reviews: reviews
+},
+{
+	name: "Viva Cafe",
+	foodType: "Asian",
+	photos: photos,
+	reviews: reviews
+}];
+
+db.Restaurant.insertMany(restaurants, (err, data) => {
+	console.log("data added")
+})
+
+
+
+
 

@@ -1,5 +1,5 @@
 module.exports = {
-    // restaurants: require('./restaurantController'),
+    restaurants: require('./restaurantController'),
     // reviews: require('./reviewsController'),
     users: require('./usersController'),
     photos: require('./photosController')
