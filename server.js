@@ -1,14 +1,15 @@
-const monggose = require('mongoose');
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 4000;
 const db = require('./models');
 
-
+//ROUTERS
 app.get('/', (req,res) =>{
     res.send('We made it here');
     console.log('server works');
 });
+
 
 
 
