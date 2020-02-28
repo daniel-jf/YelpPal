@@ -45,7 +45,7 @@ const reviews = [
 	postedBy: "Dennis"
 },
 {
-	description: "Portion is okay, but food tasted great"
+	description: "Portion is okay, but food tasted great",
 	postedBy: "Daniel"
 }];
 
