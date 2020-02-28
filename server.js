@@ -34,11 +34,6 @@ app.use('/', routes.views);
 
 app.use('/api', routes.api);
 
-app.get('/restaurant', (req,res) => {
-    res.json(TEMP_RESTAURANTS);
-    console.log('in restaurants page');
-});
-
 app.get('/restaurant/:name', (req, res) => {
     let result;
     TEMP_RESTAURANTS.forEach((restaurant) => {
