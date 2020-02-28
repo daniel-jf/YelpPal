@@ -26,8 +26,6 @@ const TEMP_RESTAURANTS = [
 ];
 
 //ROUTERS
-
-//RESTAURANT ROUTERS 
 app.use('/', routes.views);
 
 app.use('/api', routes.api);
