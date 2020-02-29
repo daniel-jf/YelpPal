@@ -1,11 +1,9 @@
 const db = require('../models');
 
-const index = (req,res) => {
-    db.Restaurant.find({})
-        .populate('restaurants.name', 'name foodtype')
-        .exec((err, allRestaurants) =>{
-            if (err) return res.json(err);
-            res.json(allRestaurants);
+const index = (req, res) => {
+	db.User.find({}, (err, allRestaurants) => {
+        if (err) return res.json(err);
+        res.json(allRestaurants);
     });
 }
 
