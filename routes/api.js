@@ -8,13 +8,8 @@ const ctrl = require('./../controllers');
 router.get('/restaurants', ctrl.restaurants.index);
 router.get('/restaurants/:id', ctrl.restaurants.show);
 router.post('/restaurants/', ctrl.restaurants.create);
-
-// router.get('/restaurants', ctrl.restaurants.index);
-// router.get('/restaurants/:id', ctrl.restaurants.show);
-// router.post('/restaurants/', ctrl.restaurants.create);
-
-// router.put('/restaurants/:id', ctrl.restaurants.update);
-// router.delete('/restaurants/:id', ctrl.restaurants.destroy);
+router.put('/restaurants/:id', ctrl.restaurants.update);
+router.delete('/restaurants/:id', ctrl.restaurants.destroy);
 
 // // Photo Routes
 
