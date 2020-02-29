@@ -34,10 +34,10 @@ router.delete('/users/:id', ctrl.users.destroy);
 
 // // Review Routes
 
-router.get('/restaurants/:id/reviews', ctrl.reviews.index);
-router.get('/restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.show);
-router.post('/restaurants/:id/reviews', ctrl.reviews.create);
-router.put('/restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.update);
-router.delete('restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.destroy);
+// router.get('/restaurants/:id/reviews', ctrl.reviews.index);
+// router.get('/restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.show);
+// router.post('/restaurants/:id/reviews', ctrl.reviews.create);
+// router.put('/restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.update);
+// router.delete('restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.destroy);
 
 module.exports = router;

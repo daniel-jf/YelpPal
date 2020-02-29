@@ -1,7 +1,7 @@
 const db = require('../models');
 
 const index = (req, res) => {
-	db.User.find({}, (err, allRestaurants) => {
+	db.Restaurant.find({}, (err, allRestaurants) => {
         if (err) return res.json(err);
         res.json(allRestaurants);
     });
