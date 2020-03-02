@@ -5,7 +5,7 @@ const photoSchema = new mongoose.Schema({
 	image: String,
 	datePosted: Date,
 	caption: String,
-	postedBy: User.schema
+	postedBy: String
 });
 
 module.exports = mongoose.model('Photo', photoSchema);
