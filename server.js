@@ -5,6 +5,10 @@ const PORT = process.envPORT || 4000;
 const db = require('./models');
 const routes = require('./routes');
 
+
+// Serve Public Assets
+app.use(express.static(__dirname + '/public'));
+
 // Init BodyParser
 app.use(bodyParser.json());
 
