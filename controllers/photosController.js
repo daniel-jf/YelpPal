@@ -34,8 +34,6 @@ const create = (req, res) => {
     		res.json(savedRestaurant.photos);
     	})
     	})
-
-    	// console.log(foundRestaurant);
 	})	
 }
 

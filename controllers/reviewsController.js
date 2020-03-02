@@ -28,10 +28,20 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-    db.Restaurant.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateReview) => {
-    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-  
-    res.json(updateReview);
+    db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
+        if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+
+        foundRestaurant.reviews.forEach((review, index) => {
+            if (review._id == req.params.reviewId) {
+                //using spread syntax to merge req.body(new photo) with origianl photo
+                foundRestaurant.reviews[index] = {...foundRestaurant.reviews[index], ...req.body};
+                foundRestaurant.save((err, updatedRestaurant) => {
+                    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+                    res.json(foundRestaurant);
+                })
+            };
+        });
+
     });
 };
 
