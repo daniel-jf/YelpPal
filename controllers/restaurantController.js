@@ -34,9 +34,10 @@ const update = (req, res) => {
 };
 
 const destroy = (req, res) => {
-    db.Restaurant.findByIdAndDelete(req.params.id, (err, deletedRestaurant) => {
+    db.Restaurant.findByIdAndDelete(req.params.photoId, (err, deletedRestaurant) => {
     if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-  
+    console.log(req.params.photoId);
+
     res.json(deletedRestaurant);
     });
 };
