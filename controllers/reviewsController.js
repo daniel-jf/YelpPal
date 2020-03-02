@@ -8,12 +8,11 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    db.Restaurant.findById(req.params.id, (err, foundReview) => {
+    db.Restaurant.findById(req.params.restaurantId, (err, foundReview) => {
     if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-  	res.json(foundReview)
-	});
+  	res.json(foundReview.reviews.id(req.params.reviewId))
+    });
 };
-
 
 const create = (req, res) => {
 	db.Restaurant.findById(req.params.id, (err, foundRestaurant) => {
@@ -28,20 +27,31 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-    db.Restaurant.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateReview) => {
-    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-  
-    res.json(updateReview);
+    db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
+        if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+        foundRestaurant.reviews.forEach((review, index) => {
+            if (review._id == req.params.reviewId) {
+                foundRestaurant.reviews[index] = {...foundRestaurant.reviews[index], ...req.body};
+                foundRestaurant.save((err, updatedRestaurant) => {
+                    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+                    res.json(foundRestaurant);
+                })
+            };
+        });
     });
 };
 
 const destroy = (req, res) => {
-    db.Restaurant.findByIdAndDelete(req.params.id, (err, deleteReview) => {
-    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-    	deleteReview.reviews.pop(req.body);
-    	console.log(deleteReview);
-    		res.json(deleteReview)
-    }); 
+	db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
+    	if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+		foundRestaurant.reviews = foundRestaurant.reviews.filter(review => {
+            return review._id != req.params.reviewId;
+		});
+		foundRestaurant.save((err, savedRestaurant) => {
+    		if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+            res.json(savedRestaurant.reviews.id(req.params.reviewId));
+		})
+	});
 };
 
 module.exports = {
