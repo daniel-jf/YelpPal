@@ -1,6 +1,13 @@
 console.log("sanity test");
 const restaurantElement = document.querySelector('#restaurant');
 
+//testing map
+let map;
+map = new google.maps.Map(document.getElementById('map'), 
+  	{center: {lat: 37.78, lng: -122.44},
+ 	zoom: 1
+ });
+
 fetch('/api/restaurants')
 	.then((buffer) => buffer.json())
 	.then((data) => {
@@ -16,7 +23,19 @@ function render(restaurantsArr) {
 	}).join('');
 
 	restaurantElement.insertAdjacentHTML('beforeend', restaurantTemplates);	
-} 
+}
+
+
+
+
+
+
+const populateMap = restaurant => {
+	return `
+
+
+	`
+}
 
 
 
