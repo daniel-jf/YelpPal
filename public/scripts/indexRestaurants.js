@@ -4,8 +4,8 @@ const restaurantElement = document.querySelector('#restaurant');
 //testing map
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
-  	{center: {lat: 37.78, lng: -122.44},
- 	zoom: 1
+  	{center: {lat: 37.790882, lng: -122.401552},
+ 	zoom: 14
  });
 
 fetch('/api/restaurants')
@@ -17,17 +17,41 @@ fetch('/api/restaurants')
 	.catch((err) => console.log(err));
 
 
+
+
 function render(restaurantsArr) {
 	const restaurantTemplates = restaurantsArr.map((restaurant) => {
+		// console.log(restaurant.address)
+		fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${restaurant.address}&key=AIzaSyCQMx6LmjsrCo30Uz6ExxdvDsOo08gv-Xk`)
+			.then((buffer) => buffer.json())
+			.then((data) => {
+				console.log(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
+				let coords = {
+					lat: data.results[0].geometry.location.lat,
+					lng: data.results[0].geometry.location.lng
+				}
+				let marker = new google.maps.Marker({position: coords, map: map});
+		})
+		.catch((err) => console.log(err));
 		return getRestaurantTemplate(restaurant);
 	}).join('');
 
-	restaurantElement.insertAdjacentHTML('beforeend', restaurantTemplates);	
+	restaurantElement.insertAdjacentHTML('beforeend', restaurantTemplates);
+	//testing markers
+	// console.log(restaurant)
+
 }
 
+//const apiKey = &key=AIzaSyCQMx6LmjsrCo30Uz6ExxdvDsOo08gv-Xk;
 
 
-
+// adding markers to map
+// let coordsObject = {
+// 	lat: coords[1],
+// 	lng: coords[0]
+// }
+// // let marker = new google.maps.Marker({position: {lat: coords[1], lng: coords[0]}, map: map});
+// let marker = new google.maps.Marker({position: coordsObject, map: map});
 
 
 const populateMap = restaurant => {
