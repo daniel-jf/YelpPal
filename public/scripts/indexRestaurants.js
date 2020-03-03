@@ -1,12 +1,15 @@
 console.log("sanity test");
 const restaurantElement = document.querySelector('#restaurant');
-
-//testing map
+const photoForm = document.querySelector('#photoSubmit');
+// Creating map on page
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
   	{center: {lat: 37.790882, lng: -122.401552},
  	zoom: 14
  });
+
+
+//event listneners
 
 fetch('/api/restaurants')
 	.then((buffer) => buffer.json())
@@ -17,49 +20,28 @@ fetch('/api/restaurants')
 	.catch((err) => console.log(err));
 
 
-
-
 function render(restaurantsArr) {
 	const restaurantTemplates = restaurantsArr.map((restaurant) => {
-		// console.log(restaurant.address)
-		fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${restaurant.address}&key=AIzaSyCQMx6LmjsrCo30Uz6ExxdvDsOo08gv-Xk`)
-			.then((buffer) => buffer.json())
-			.then((data) => {
-				console.log(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
-				let coords = {
-					lat: data.results[0].geometry.location.lat,
-					lng: data.results[0].geometry.location.lng
-				}
-				let marker = new google.maps.Marker({position: coords, map: map});
-		})
-		.catch((err) => console.log(err));
+		createMarkers(restaurant);
 		return getRestaurantTemplate(restaurant);
 	}).join('');
 
 	restaurantElement.insertAdjacentHTML('beforeend', restaurantTemplates);
-	//testing markers
-	// console.log(restaurant)
-
 }
 
-//const apiKey = &key=AIzaSyCQMx6LmjsrCo30Uz6ExxdvDsOo08gv-Xk;
-
-
-// adding markers to map
-// let coordsObject = {
-// 	lat: coords[1],
-// 	lng: coords[0]
-// }
-// // let marker = new google.maps.Marker({position: {lat: coords[1], lng: coords[0]}, map: map});
-// let marker = new google.maps.Marker({position: coordsObject, map: map});
-
-
-const populateMap = restaurant => {
-	return `
-
-
-	`
-}
+// converting address to long and lat for google markers using google geocode api
+const createMarkers = restaurant => {
+	fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${restaurant.address}&key=AIzaSyCQMx6LmjsrCo30Uz6ExxdvDsOo08gv-Xk`)
+		.then((buffer) => buffer.json())
+		.then((data) => {
+			let coords = {
+				lat: data.results[0].geometry.location.lat,
+				lng: data.results[0].geometry.location.lng
+			};
+			let marker = new google.maps.Marker({position: coords, map: map});
+	})
+	.catch((err) => console.log(err));
+};
 
 
 
@@ -76,7 +58,7 @@ const getRestaurantTemplate = restaurant => {
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="/api/restaurants/${restaurant._id}" class="btn btn-primary float-right">View</a>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal" id="${restaurant._id}">Add</button>
                 </div>
 
                 <small class="text-muted">ratings</small>
@@ -101,5 +83,40 @@ const getRestaurantTemplate = restaurant => {
 // 	</div> 
 // 	`;
 // };
+
+
+//Add Restaurant Photo
+photoForm.addEventListener('click', (event) => {
+	// event.preventDefault();
+	const photoUser = document.querySelector('#photoUser');
+	const photoImage = document.querySelector('#photoImage');
+	const photoCaption = document.querySelector('#photoCaption');
+	const restaurantId = event.target.id;
+	console.log(this);
+	console.log("testing")
+	// fetch('/api/restaurants/:id')
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
