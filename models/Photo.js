@@ -3,9 +3,9 @@ const User = require('./User');
 
 const photoSchema = new mongoose.Schema({
 	image: String,
-	datePosted: Date,
+	// datePosted: Date,
 	caption: String,
 	postedBy: String
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('Photo', photoSchema);
