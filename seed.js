@@ -14,9 +14,15 @@ const photos = [
 
 const reviews = [
 {
+	postedBy:"Dennis",
+	rating: 4,
+	datePosted: Date.now(),
 	description: "All Meals have been good",
 },
 {
+	postedBy:"Daniel",
+	rating: 2,
+	datePosted: Date.now(),
 	description: "Food took a long time to come"
 }]
 
@@ -45,7 +51,6 @@ const restaurants = [
 	photos: photos,
 	reviews: reviews
 }];
-
 
 
 const users = [

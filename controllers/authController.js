@@ -49,40 +49,40 @@ const db = require('../models');
 
 
 // // POST Session Create
-// const login = (req, res) => {
-//   // Verify req.body Is Not Empty
+const login = (req, res) => {
+  // Verify req.body Is Not Empty
 
-//   db.User.findOne({email: req.body.email}, (err, foundUser) => {
-//     if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+  db.User.findOne({email: req.body.email}, (err, foundUser) => {
+    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 
-//     // If No User Found, Respond with 400
-//     if (!foundUser) {
-//     	return res.status(400).status(400).json({status: 400, message: 'Invalid credentials'});
-//     }
+    // If No User Found, Respond with 400
+    if (!foundUser) {
+    	return res.status(400).status(400).json({status: 400, message: 'Invalid credentials'});
+    }
 
-//     //Hash the req.body.password
-//     bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-//     	if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+    //Hash the req.body.password
+    bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
+    	if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 
-//     	if (isMatch) {
-//     		//Create a session and respond
-//     		const currentUser = {
-//     			_id: foundUser._id,
-//     			name: foundUser.name,
-//     			email: foundUser.email
-//     		};
-//     		// Create a New session ( Key to the Kingdom)
-//     		req.session.currentUser = currentUser;
+    	if (isMatch) {
+    		//Create a session and respond
+    		const currentUser = {
+    			_id: foundUser._id,
+    			name: foundUser.name,
+    			email: foundUser.email
+    		};
+    		// Create a New session ( Key to the Kingdom)
+    		req.session.currentUser = currentUser;
 
-//     		// Respond
-//     		res.satatus(200).json({status:200, currentUser});
-//     	} else {
-//     		//Respond with error
-//     		res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
-//     	}
-//     })
-//   });
-// };
+    		// Respond
+    		res.satatus(200).json({status:200, currentUser});
+    	} else {
+    		//Respond with error
+    		res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
+    	}
+    })
+  });
+};
 
 
 // // DELETE Session Destroy
