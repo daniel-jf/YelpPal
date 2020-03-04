@@ -5,8 +5,8 @@ const PORT = process.envPORT || 4000;
 const db = require('./models');
 const routes = require('./routes');
 // Dependency for Auth
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+// const session = require('express-session');
+// const MongoStore = require('connect-mongo')(session);
 
 // Serve Public Assets
 app.use(express.static(__dirname + '/public'));
@@ -27,17 +27,17 @@ app.use((req,res,next) => {
 });
 
 //Express Session
-app.use(session({
-	store: new MongoStore({
-		url: process.envMONGOD_URI || 'mongodb://localhost:27017/yelpPal'
-	}),
-	secret: 'poij34592j9fm9dwo2fo2enf20nvoiwemiweo',
-	resave: false,
-	saveUninitialized: false,
-	cookie: {
-		maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // => Two weeks
-	}
-}));
+// app.use(session({
+// 	store: new MongoStore({
+// 		url: process.envMONGOD_URI || 'mongodb://localhost:27017/yelpPal'
+// 	}),
+// 	secret: 'poij34592j9fm9dwo2fo2enf20nvoiwemiweo',
+// 	resave: false,
+// 	saveUninitialized: false,
+// 	cookie: {
+// 		maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // => Two weeks
+// 	}
+// }));
 
 
 //ROUTERS
