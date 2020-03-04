@@ -1,66 +1,19 @@
-*, ::after, ::before {
-    box-sizing: border-box;
+
+.carousel-inner{
+    max-height: 200px !important;
 }
-:not(svg) {
-    transform-origin: 0px 0px;
+div.imageTest {
+   min-height: 80vh;
 }
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.imageTest{
+    background-image: url('/images/background-for-yelppal.jpg');
+    background-size: 100% 100%;
 }
-.carousel-indicators {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 15;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-left: 0;
-    margin-right: 15%;
-    margin-left: 15%;
-    list-style: none;
+div.container{
+    border-width: thick;
+    background-color:  rgba(245,245,245,0.8);
 }
-dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-user agent stylesheet
-ol {
-    display: block;
-    list-style-type: decimal;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-.carousel-control-prev {
-    left: 0;
-}
-.carousel-control-next, .carousel-control-prev {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    width: 15%;
-    color: #fff;
-    text-align: center;
-    opacity: .5;
-    transition: opacity .15s ease;
+h5{
+    font-size: 60px;
+    color: black;
 }
