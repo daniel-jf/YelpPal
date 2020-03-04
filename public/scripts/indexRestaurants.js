@@ -52,9 +52,10 @@ const getRestaurantTemplate = restaurant => {
           <div class="card mb-4 shadow-sm">
           	<img src="${restaurant.image}" class="card-img-top" alt="${restaurant.name}">
             <div class="card-body">
-              <p class="card-text">This restaurant serves ${restaurant.foodType} Food</p>
-              <p class="card-text">Photos = ${restaurant.photos.length}</p>
-              <p class="card-text">Reviews = ${restaurant.reviews.length}</p>
+              <h5 class="card-text mb-1">${restaurant.name}</h5>
+              <p class="card-text mb-1">Crusine: ${restaurant.foodType}</p>
+              <p class="card-text mb-1">Photos: ${restaurant.photos.length}</p>
+              <p class="card-text mb-1">Reviews: ${restaurant.reviews.length}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="/api/restaurants/${restaurant._id}" class="btn btn-primary float-right">View</a>

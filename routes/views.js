@@ -32,7 +32,7 @@ router.get('/restaurant/page', (req, res) => {
 
 // Register Template
 router.get('/register', (req, res) => {
-	res.sendFile('views/auth/register.html', {
+	res.sendFile('views/signup.html', {
 		root: __dirname + '/../',
 	});
 });
@@ -40,7 +40,7 @@ router.get('/register', (req, res) => {
 
 // Login Template
 router.get('/login', (req, res) => {
-	res.sendFile('views/auth/login.html', {
+	res.sendFile('views/signin.html', {
 		root: __dirname + '/../',
 	});
 });

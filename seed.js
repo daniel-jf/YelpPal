@@ -1,57 +1,73 @@
 const db = require('./models');
 
-const users = [
-{
-	name: "Dennis",
-	password: "pass",
-},
-{
-	name: "Daniel",
-	password: "pass",
-}];
-
 const photos = [
 {
-	image: "https://picsum.photos/300",
-	postedBy: "Dennis",
-	caption: "Great food"
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	caption: "Good Portion",
+	postedBy: "dennis"
 },
 {
-	image: "https://picsum.photos/300",
-	postedBy: "Daniel",
-	caption: "Really good portions"
-}
-];
-
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	caption: "It was good",
+	postedBy: "daniel"
+}]
 
 const reviews = [
 {
-	description: "Food was ready and portions are great",
-	postedBy: "Dennis"
+	description: "All Meals have been good",
 },
 {
-	description: "Portion is okay, but food tasted great",
-	postedBy: "Daniel"
-}];
+	description: "Food took a long time to come"
+}]
+
 
 const restaurants = [
 {
-	name: "Lily Cafe",
-	foodType: "Vegan",
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	name: "Viva Cafe",
+	foodType: "Asian",
+	address: "601 Montgomery St Lobby",
 	photos: photos,
 	reviews: reviews
 },
 {
-	name: "Viva Cafe",
-	foodType: "Asian",
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	name: "Front Door Cafe",
+	foodType: "American",
+	photos: photos,
+	reviews: reviews
+},
+{
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	name: "Mehfill Indian",
+	foodType: "Indian",
+	address: "28 2nd st",
 	photos: photos,
 	reviews: reviews
 }];
 
-db.Restaurant.insertMany(restaurants, (err, data) => {
-	console.log("data added")
-})
 
+
+const users = [
+{
+	name: "dennis",
+	password: "dennis",
+	email: "dennis@email.com"
+},
+{
+	name: "daniel",
+	password: "daniel",
+	email: "daniel@email.com"
+}];
+
+
+db.Restaurant.create(restaurants, (err, newRestaurants) => {
+	console.log("adding new restaurants...")
+});
+
+db.User.create(users, (err, newUsers) => {
+	console.log("adding new users")
+});
 
 
 
