@@ -1,6 +1,6 @@
 console.log("sanity test");
 const restaurantElement = document.querySelector('#restaurant');
-const photoForm = document.querySelector('#photoSubmit');
+const photoForm = document.querySelector('#photoModal');
 // Creating map on page
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
@@ -86,12 +86,12 @@ const getRestaurantTemplate = restaurant => {
 
 
 //Add Restaurant Photo
-photoForm.addEventListener('click', (event) => {
+photoForm.addEventListener('submit', (event) => {
 	// event.preventDefault();
 	const photoUser = document.querySelector('#photoUser');
 	const photoImage = document.querySelector('#photoImage');
 	const photoCaption = document.querySelector('#photoCaption');
-	const restaurantId = event.target.id;
+	// const restaurantId = event.target.id;
 	console.log(this);
 	console.log("testing")
 	// fetch('/api/restaurants/:id')
