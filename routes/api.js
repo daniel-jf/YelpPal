@@ -35,12 +35,12 @@ router.post('/restaurants/:id/reviews', ctrl.reviews.create);
 router.put('/restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.update);
 router.delete('/restaurants/:restaurantId/reviews/:reviewId', ctrl.reviews.destroy);
 
-// Auth Routes
+//Auth Routes
 
-// router.post('/register', ctrl.auth.register);
-// router.post('/login', ctrl.auth.login);
-// router.delete('/logout', ctrl.auth.logout);
-// router.get('/verify', ctrl.auth.verify);
+router.post('/register', ctrl.auth.register);
+router.post('/login', ctrl.auth.login);
+router.delete('/logout', ctrl.auth.logout);
+router.get('/verify', ctrl.auth.verify);
 
 
 module.exports = router;

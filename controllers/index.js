@@ -3,5 +3,5 @@ module.exports = {
     reviews: require('./reviewsController'),
     users: require('./usersController'),
     photos: require('./photosController'),
-    //auth: require('./authController')
+    auth: require('./authController')
 };
