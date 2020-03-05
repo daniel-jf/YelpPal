@@ -1,5 +1,5 @@
 console.log('Register JS...');
-const form = document.getElementById('registerForm');
+const form = document.getElementById('signup');
 
 /*
 1 - Select the Form
@@ -56,7 +56,7 @@ function handleSignupSubmit(event) {
   if (formIsValid) {
     // SUBMIT DATA TO SERVER
     console.log('Submitting User Data ---->', userData)
-    fetch('/api/v1/register', {
+    fetch('/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

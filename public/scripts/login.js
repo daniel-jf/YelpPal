@@ -1,7 +1,7 @@
 console.log('Login JS...');
 console.log('Login JS...');
-const form = document.getElementById('signInTemp');
-
+const form = document.querySelector('.form-signin');
+console.log(form);
 // Submit Event Listener
 form.addEventListener('submit', handleLoginSubmit);
 
@@ -14,8 +14,7 @@ function handleLoginSubmit(event) {
   // Clear Alert Messages
   document.querySelectorAll('.invalid-feedback').forEach((alert) => alert.remove());
 
-  // const formInputs = Array.from(form.elements);
-  const formInputs = [...form.elements];
+ const formInputs = Array.from(form.elements);
   formInputs.forEach((input) => {
     input.classList.remove('is-invalid');
     if (input.type !== 'submit' && input.value === '') {
@@ -41,14 +40,14 @@ function handleLoginSubmit(event) {
     }
 
     if (formIsValid) {
-      userData[input.email] = input.value;
+      userData[input.name] = input.value;
     }
   });
 
   if (formIsValid) {
     // SUBMIT DATA TO SERVER
     console.log('Submitting User Data ---->', userData)
-    fetch('/api/v1/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
