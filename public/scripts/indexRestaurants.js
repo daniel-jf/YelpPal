@@ -1,6 +1,7 @@
 console.log("sanity test");
 const restaurantElement = document.querySelector('#restaurant');
 const photoForm = document.querySelector('#photoModal');
+const signButtons = document.querySelector('#loggedIn');
 // Creating map on page
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
@@ -42,8 +43,6 @@ const createMarkers = restaurant => {
 	})
 	.catch((err) => console.log(err));
 };
-
-
 
 
 const getRestaurantTemplate = restaurant => {

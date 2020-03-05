@@ -75,7 +75,7 @@ const login = (req, res) => {
     		req.session.currentUser = currentUser;
 
     		// Respond
-    		res.satatus(200).json({status:200, currentUser});
+    		res.status(200).json({status:200, currentUser});
     	} else {
     		//Respond with error
     		res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
@@ -114,7 +114,7 @@ const verify = (req, res) => {
 
 
 module.exports = {
-  //register,
+  register,
   login,
   logout,
   verify,

@@ -11,19 +11,20 @@ const form = document.getElementById('signup');
 */
 
 // Submit Event Listener
-form.addEventListener('submit', handleSignupSubmit);
+form.addEventListener('click', handleSignupSubmit);
 
 // Handle Submit
 function handleSignupSubmit(event) {
+  console.log('brrp')
   let formIsValid = true;
   const userData = {};
   event.preventDefault();
-
+console.log("check");
   // Clear Alert Messages
   document.querySelectorAll('.invalid-feedback').forEach((alert) => alert.remove());
-
-  // const formInputs = Array.from(form.elements);
-  const formInputs = [...form.elements];
+  
+  const formInputs = Array.from(form.elements);
+  console.log({formInputs})
   formInputs.forEach((input) => {
     input.classList.remove('is-invalid');
     if (input.type !== 'submit' && input.value === '') {
@@ -49,6 +50,7 @@ function handleSignupSubmit(event) {
     }
 
     if (formIsValid) {
+      console.log({[input.name]:input.value})
       userData[input.name] = input.value;
     }
   });
