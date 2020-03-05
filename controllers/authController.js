@@ -114,7 +114,7 @@ const verify = (req, res) => {
 
 
 module.exports = {
-  register,
+  //register,
   login,
   logout,
   verify,
