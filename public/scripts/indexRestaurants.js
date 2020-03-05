@@ -99,16 +99,25 @@ const getRestaurantTemplate = restaurant => {
 
 // })
 $(function(){
-$(document).on("click", ".button", function(e) {
+$('#photoSubmit').on("click",function(e) {
 	e.preventDefault();
-		const info = $("#form").serialize();  
+	console.log('beep')
+	const postReview = `/restaurants/${restaurant._id}/reviews`;
+		let info = {
+			postedBy: $('#photoUser').val(),
+			image: $('#photoImage').val(),
+			caption: $('#photoCaption').val(),
+		}
+		info = JSON.stringify(info)
+		console.log(info);
 		$.ajax({
 			type: "POST",
-			url: "/api/restaurants/5e6008a072e9ae0b10c26ceb/reviews",
+			url: postReview,
 			data: info,
-			success: function(result){				
-				//$("#form")[0].reset();
-				$('#photoModal').html(result); 
+			headers:{
+				'Content-Type':'application/json'
+			},
+			success: function(result){
 			}
 		});
 	e.preventDefault();
