@@ -73,7 +73,7 @@
 
     <div class="imageTest">
         <div id="reviewSection" class="container">
-          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal" id="${restaurant._id}">Add Review</button>       
+          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addReviewModal" id="addButton">Add Review</button>       
           <h2 class="text-center">Reviews</h2>
 
 
@@ -82,7 +82,7 @@
   </main>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -93,25 +93,26 @@
       </div>
       <!-- Modal Body -->
       <div class="modal-body">
-        <form id="photoModal">
+        <form id="addModalForm">
           <!-- <div class="form-group"> -->
             <label for="name" class="col-form-label">Review:</label>
-            <input type="text" class="form-control" id="photoUser">
+            <input type="text" class="form-control" id="description">
           <!-- </div> -->
           <!-- <div class="form-group"> -->
             <label for="image-url" class="col-form-label">rating :"1-5"</label>
-            <input class="form-control" id="photoImage"></input>
+            <input class="form-control" id="rating"></input>
           <!-- </div>           -->
           <!-- <div class="form-group"> -->
             <label for="caption" class="col-form-label">Your Name:</label>
-            <input class="form-control" id="photoCaption"></input>
+            <input class="form-control" id="postedBy"></input>
           <!-- </div> -->
+          <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="submit" id="addReviewSubmit"class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="photoSubmit"class="btn btn-primary">Submit</button>
-      </div>
+
     </div>
   </div>
 </div>
