@@ -22,7 +22,7 @@ router.get('/signup', (req,res) =>{
     console.log('sign in page ');
 });
 
-router.get('/restaurant/page', (req, res) => {
+router.get('/restaurant/:id', (req, res) => {
     res.sendFile('views/restaurant.html', {
       root: __dirname + '/../',
     });

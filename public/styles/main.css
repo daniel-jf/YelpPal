@@ -2,10 +2,10 @@
 .carousel-inner{
     max-height: 200px !important;
 }
-div.imageTest {
-   min-height: 80vh;
+.imageTest {
+   height: 100%;
 }
-.imageTest{
+body{
     background-image: url('/images/background-for-yelppal.jpg');
     background-size: 100% 100%;
 }
