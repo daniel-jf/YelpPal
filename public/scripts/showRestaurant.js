@@ -25,10 +25,19 @@ function render(reviewsArr) {
 }
 
 
-	// description: String,
-	// datePosted: Date,
-	// rating: Number,
-	// postedBy: String
+
+
+// reviewForm.addEventListener('submit', (event) => {
+// 	// event.preventDefault();
+// 	const photoUser = document.querySelector('#photoUser');
+// 	const photoImage = document.querySelector('#photoImage');
+// 	const photoCaption = document.querySelector('#photoCaption');
+// 	// const restaurantId = event.target.id;
+// 	console.log(this);
+// 	console.log("testing")
+// 	// fetch('/api/restaurants/:id')
+
+// })
 
 const getReviewsTemplate = review => {
 	let rating = '<i class="fas fa-star"></i>'
@@ -39,6 +48,8 @@ const getReviewsTemplate = review => {
 		else
 			rating += '<i class="far fa-star"></i>'
 	}
+
+
 	console.log("rating = ", rating)
 	return `
        <div class="row">
@@ -50,8 +61,9 @@ const getReviewsTemplate = review => {
          <div class="col-9">
          	${rating}
             <p class="lead">rating: ${review.rating}/5</p>
-            <p class="lead">Date Posted: ${review.datePosted}</p>
+            <p class="lead">Date Posted: ${review.datePosted.substring(0, 10)}</p>
             <p class="font-weight-bold lead">${review.description}</p>
+            <button class="btn btn-danger">Delete</button>
          </div>
        </div> 
 	`;
