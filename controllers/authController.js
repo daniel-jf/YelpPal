@@ -85,37 +85,37 @@ const login = (req, res) => {
 };
 
 
-// // DELETE Session Destroy
-// const logout = (req, res) => {
-//   // If There Is A Current Session, Destroy Session and Respond with 200
-//   if (!req.session.currentUser) {
-//   	return res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
-//   }
+// DELETE Session Destroy
+const logout = (req, res) => {
+  // If There Is A Current Session, Destroy Session and Respond with 200
+  if (!req.session.currentUser) {
+  	return res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
+  }
 
-//   req.session.destroy((err) => {
-//   	if (err) return res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
+  req.session.destroy((err) => {
+  	if (err) return res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
 
-//   	res.status(200).json({status: 200, message: 'Success'});
-//   });
-//   // Otherwise, Do Nothing
-// };
-
-
-// const verify = (req, res) => {
-// 	if (req.session.currentUser) {
-// 		return res.json({
-// 			status: 200, 
-// 			message: 'Authorized', 
-// 			currentUser: req.session.currentUser
-// 		});
-// 	};
-// 	res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'})
-// };
+  	res.status(200).json({status: 200, message: 'Success'});
+  });
+  // Otherwise, Do Nothing
+};
 
 
-// module.exports = {
-//   register,
-//   login,
-//   logout,
-//   verify,
-// };
+const verify = (req, res) => {
+	if (req.session.currentUser) {
+		return res.json({
+			status: 200, 
+			message: 'Authorized', 
+			currentUser: req.session.currentUser
+		});
+	};
+	res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'})
+};
+
+
+module.exports = {
+  register,
+  login,
+  logout,
+  verify,
+};

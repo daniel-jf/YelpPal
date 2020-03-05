@@ -87,19 +87,33 @@ const getRestaurantTemplate = restaurant => {
 
 
 //Add Restaurant Photo
-photoForm.addEventListener('submit', (event) => {
-	// event.preventDefault();
-	const photoUser = document.querySelector('#photoUser');
-	const photoImage = document.querySelector('#photoImage');
-	const photoCaption = document.querySelector('#photoCaption');
-	// const restaurantId = event.target.id;
-	console.log(this);
-	console.log("testing")
-	// fetch('/api/restaurants/:id')
+// photoForm.addEventListener('submit', (event) => {
+// 	event.preventDefault();
+// 	const photoUser = document.querySelector('#photoUser');
+// 	const photoImage = document.querySelector('#photoImage');
+// 	const photoCaption = document.querySelector('#photoCaption');
+// 	// const restaurantId = event.target.id;
+// 	console.log(this);
+// 	console.log("testing")
+// 	// fetch('/api/restaurants/:id')
 
-})
-
-
+// })
+$(function(){
+$(document).on("click", ".button", function(e) {
+	e.preventDefault();
+		const info = $("#form").serialize();  
+		$.ajax({
+			type: "POST",
+			url: "/api/restaurants/5e6008a072e9ae0b10c26ceb/reviews",
+			data: info,
+			success: function(result){				
+				//$("#form")[0].reset();
+				$('#photoModal').html(result); 
+			}
+		});
+	e.preventDefault();
+	});
+});
 
 
 
