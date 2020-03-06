@@ -166,7 +166,7 @@ const getReviewsTemplate = review => {
          <div class="col-9">
          	${rating}
             <p class="lead">rating: ${review.rating}/5</p>
-            <p class="lead">Date Posted: ${review.datePosted.substring(0, 10)}</p>
+            
             <p class="font-weight-bold lead">${review.description}</p>
             <button class="deleteButton btn btn-danger" id="${review._id}">Delete</button>
             <button class="updateButton btn btn-primary" id="${review._id}">Edit</button>

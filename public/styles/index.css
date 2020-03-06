@@ -2,9 +2,9 @@ body {
 	    background-image: url('../images/background-for-yelppal.jpg');
 }
 
-/*#map {
+#map {
  width: 200px;
  position: fixed;
  bottom:0px;
  right:0px;
-}*/
+}
