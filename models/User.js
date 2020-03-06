@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema({
 	name: String,
 	password: String,
 	email: String,	
-	// dateJoined: Date
 }, {timestamps: true});
 
 module.exports = mongoose.model('User', userSchema);

@@ -1,16 +1,5 @@
 const db = require('./models');
 
-const photos = [
-{
-	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
-	caption: "Good Portion",
-	postedBy: "dennis"
-},
-{
-	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
-	caption: "It was good",
-	postedBy: "daniel"
-}]
 
 const reviews = [
 {
@@ -33,14 +22,13 @@ const restaurants = [
 	name: "Viva Cafe",
 	foodType: "Asian",
 	address: "601 Montgomery St Lobby",
-	photos: photos,
 	reviews: reviews
 },
 {
 	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
 	name: "Front Door Cafe",
 	foodType: "American",
-	photos: photos,
+	address: "1 Front St",
 	reviews: reviews
 },
 {
@@ -48,7 +36,6 @@ const restaurants = [
 	name: "Mehfill Indian",
 	foodType: "Indian",
 	address: "28 2nd st",
-	photos: photos,
 	reviews: reviews
 }];
 
