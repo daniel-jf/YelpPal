@@ -1,14 +1,13 @@
-
-.carousel-inner{
-    max-height: 200px !important;
+#restaurantPageBody{
+    display: flex;
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 .imageTest {
    height: 100%;
 }
-body{
-    background-image: url('/images/background-for-yelppal.jpg');
-    background-size: 100% 100%;
-}
+
 div.container{
     border-width: thick;
     background-color:  rgba(245,245,245,0.8);
