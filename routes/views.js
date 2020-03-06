@@ -29,14 +29,12 @@ router.get('/restaurant/:id', (req, res) => {
     console.log('Route to restaurant works');
 });
 
-
 // Register Template
 router.get('/register', (req, res) => {
 	res.sendFile('views/signup.html', {
 		root: __dirname + '/../',
 	});
 });
-
 
 // Login Template
 router.get('/login', (req, res) => {

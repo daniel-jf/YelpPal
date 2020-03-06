@@ -1,5 +1,5 @@
 console.log('Register JS...');
-const form = document.getElementById('registerForm');
+const form = document.getElementById('signup');
 
 /*
 1 - Select the Form
@@ -11,19 +11,20 @@ const form = document.getElementById('registerForm');
 */
 
 // Submit Event Listener
-form.addEventListener('submit', handleSignupSubmit);
+form.addEventListener('click', handleSignupSubmit);
 
 // Handle Submit
 function handleSignupSubmit(event) {
+  console.log('brrp')
   let formIsValid = true;
   const userData = {};
   event.preventDefault();
-
+console.log("check");
   // Clear Alert Messages
   document.querySelectorAll('.invalid-feedback').forEach((alert) => alert.remove());
-
-  // const formInputs = Array.from(form.elements);
-  const formInputs = [...form.elements];
+  
+  const formInputs = Array.from(form.elements);
+  console.log({formInputs})
   formInputs.forEach((input) => {
     input.classList.remove('is-invalid');
     if (input.type !== 'submit' && input.value === '') {
@@ -49,6 +50,7 @@ function handleSignupSubmit(event) {
     }
 
     if (formIsValid) {
+      console.log({[input.name]:input.value})
       userData[input.name] = input.value;
     }
   });
@@ -56,7 +58,7 @@ function handleSignupSubmit(event) {
   if (formIsValid) {
     // SUBMIT DATA TO SERVER
     console.log('Submitting User Data ---->', userData)
-    fetch('/api/v1/register', {
+    fetch('/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

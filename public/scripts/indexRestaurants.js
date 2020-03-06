@@ -1,6 +1,9 @@
-console.log("sanity test");
+let user = JSON.parse(localStorage.getItem('currentUser'));
+console.log(user);
 const restaurantElement = document.querySelector('#restaurant');
 const photoForm = document.querySelector('#photoModal');
+const signButtons = document.querySelector('#loggedIn');
+const logoutButton = document.querySelector('#logOut');
 // Creating map on page
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
@@ -42,8 +45,6 @@ const createMarkers = restaurant => {
 	})
 	.catch((err) => console.log(err));
 };
-
-
 
 
 const getRestaurantTemplate = restaurant => {
@@ -124,6 +125,32 @@ $('#photoSubmit').on("click",function(e) {
 	});
 });
 
+logoutButton.addEventListener('click', () => { 
+	console.log('test');
+	  fetch('/api/logout', {
+		method: 'DELETE',
+		headers: {
+		  'Content-Type': 'application/json',
+		  'credentials': 'include',
+		},
+	  })
+		.then((res) => res.json())
+		.then((data) => {
+		  if (data.status === 200) {
+			localStorage.removeItem('currentUser');
+			window.location = '/signin';
+		}
+		console.log(data);
+	})
+});
+
+if (user){
+	signButtons.style.display = "none";
+	logoutButton.style.display = "block";
+} else if (!user){
+	signButtons.style.display = "block";
+	logoutButton.style.display = "none";
+}
 
 
 
