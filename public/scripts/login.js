@@ -1,7 +1,7 @@
 console.log('Login JS...');
 console.log('Login JS...');
 const form = document.querySelector('.form-signin');
-console.log(form);
+
 // Submit Event Listener
 form.addEventListener('submit', handleLoginSubmit);
 
@@ -58,6 +58,7 @@ function handleLoginSubmit(event) {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === 200) {
+          localStorage.setItem('currentUser', JSON.stringify(data.currentUser));
           window.location = '/';
         }
         console.log(data);
@@ -65,3 +66,4 @@ function handleLoginSubmit(event) {
       .catch((err) => console.log(err));
   }
 }
+

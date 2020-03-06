@@ -87,6 +87,7 @@ const login = (req, res) => {
 
 // DELETE Session Destroy
 const logout = (req, res) => {
+	console.log('req.session')
   // If There Is A Current Session, Destroy Session and Respond with 200
   if (!req.session.currentUser) {
   	return res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
@@ -94,7 +95,7 @@ const logout = (req, res) => {
 
   req.session.destroy((err) => {
   	if (err) return res.status(401).json({status: 401, error: 'Unauthorized, please login and try again'});
-
+console.log('nbeep');
   	res.status(200).json({status: 200, message: 'Success'});
   });
   // Otherwise, Do Nothing
