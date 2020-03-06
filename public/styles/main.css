@@ -12,3 +12,14 @@ div.container{
     border-width: thick;
     background-color:  rgba(245,245,245,0.8);
 }
+#logo{
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgba(245,245,245,0.9);
+    background-color: rgba(245,245,245,0.9);
+    margin-bottom: 10px;
+}
+#addButton{
+    margin-top: 20px;
+}
