@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URI = process.envMONGOD_URI || 'mongodb://localhost:27017/yelpPal';
+const DB_URI = process.env.MONGOD_URI || 'mongodb://localhost:27017/yelpPal';
 
 mongoose.connect(DB_URI, {
 	useNewUrlParser: true,
