@@ -7,6 +7,70 @@ const restaurantId = window.location.pathname.split('/')[2];
 let currentReviewId = "";
 let firstRun = true;
 
+// element = submit button for modal
+// request = EX: "PUT", "POST"
+// query = Query String for fetch request
+// modalType 1 = addReview, type 2 = UpdateReview
+// modalId = Id for modal to target
+// const addElAndFetch = (element, request, query, modalType, modalId) => {
+// 	element.addEventListener('click', (e) => {
+// 	e.preventDefault();
+// 	if (modalType == 1) {
+// 		const description = document.querySelector('#description');
+// 		const postedBy = document.querySelector('#postedBy');
+// 		const rating =  document.querySelector('#rating');
+// 	} else {
+// 		const description = document.querySelector('#updateDescription');
+// 		const postedBy = document.querySelector('#updatePostedBy');
+// 		const rating =  document.querySelector('#updateRating');
+// 	}
+// 	let formIsValid = true;
+
+// 	//reset validation
+// 	description.classList.remove("is-invalid")
+// 	rating.classList.remove("is-invalid")
+// 	postedBy.classList.remove("is-invalid")
+
+// 	//check if form is valid	
+// 	if (!description.value) {
+// 		description.classList.add("is-invalid");
+// 		formIsValid = false;
+// 	};
+// 	if (!postedBy.value) {
+// 		postedBy.classList.add("is-invalid");
+// 		formIsValid = false;
+// 	}
+// 	if (!rating.value || rating.value.length > 1 || !(rating.value >= 1 && rating.value <=5)) {
+// 		rating.classList.add("is-invalid")
+// 		formIsValid = false;
+// 	}
+// 	// run if valid
+// 	if (formIsValid) {
+// 		const newReview = {
+// 			postedBy: postedBy.value,
+// 			rating: rating.value,
+// 			description: description.value,
+// 			datePosted: Date.now()
+// 		};
+// 		//Create Review onto Database
+// 		fetch(query, {
+// 			method: request,
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 			body: JSON.stringify(newReview),
+// 		})
+// 			.then((buffer) => buffer.json())
+// 			.then((res) => {
+// 				console.log(res);
+// 				$(`#${modalId}`).modal('hide');
+// 				// getReviews()
+// 				location.reload();
+// 			})
+// 			.catch((err) => console.log(err));
+// 	}
+// })
+// }
 
 //--------Update review Modal form event listener--------------
 updateReviewSubmit.addEventListener('click', (e) => {
@@ -114,7 +178,7 @@ addReviewSubmit.addEventListener('click', (e) => {
 			.catch((err) => console.log(err));
 	}
 })
-
+ 
 
 
 
@@ -124,6 +188,7 @@ addReviewSubmit.addEventListener('click', (e) => {
 
 
 const getReviews = () => {
+	//---------- run on page load-------------------------
 	fetch(`${API_BASE}/restaurants/${restaurantId}`)
 		.then((buffer) => buffer.json())
 		.then((data) => {
@@ -135,7 +200,7 @@ const getReviews = () => {
 		.catch((err) => console.log(err))
 }
 
-getReviews()
+
 
 function render(reviewsArr) {
 	const reviewsTemplates = reviewsArr.map((review) => {
@@ -214,6 +279,14 @@ const addDeleteButtonEL = () => {
 	});
 };
 
+
+//---------- run on page load-------------------------
+getReviews()
+//testing
+// addElAndFetch = (element, request, query, modalType, modalId)
+// addElAndFetch(addReviewSubmit, "POST", `/api/restaurants/${restaurantId}/reviews`, 1, "addReviewModal")
+// addElAndFetch(updateReviewSubmit, "PUT", `/api/restaurants/${restaurantId}/reviews/${currentReviewId}`, 2, "updateReviewModal")
+//testing
 
 
 
