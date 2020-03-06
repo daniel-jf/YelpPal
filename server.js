@@ -21,7 +21,6 @@ app.use((req,res,next) => {
     const method = req.method;
     const requestedAt = new Date().toLocaleTimeString();
     const result = `${method} ${url} ${requestedAt}`;
-    console.log(result);
   
     next();
 });

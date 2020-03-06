@@ -5,7 +5,8 @@ const reviewSchema = new mongoose.Schema({
 	description: String,
 	datePosted: Date,
 	rating: Number,
-	postedBy: String
+	postedBy: String,
+	photo: String
 });
 
 module.exports = mongoose.model('Review', reviewSchema);

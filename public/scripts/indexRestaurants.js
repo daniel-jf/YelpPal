@@ -4,6 +4,7 @@ const restaurantElement = document.querySelector('#restaurant');
 const photoForm = document.querySelector('#photoModal');
 const signButtons = document.querySelector('#loggedIn');
 const logoutButton = document.querySelector('#logOut');
+
 // Creating map on page
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
@@ -12,8 +13,7 @@ map = new google.maps.Map(document.getElementById('map'),
  });
 
 
-//event listneners
-
+//init
 fetch('/api/restaurants')
 	.then((buffer) => buffer.json())
 	.then((data) => {
@@ -55,14 +55,11 @@ const getRestaurantTemplate = restaurant => {
             <div class="card-body">
               <p class="card-text mb-1 font-weight-">${restaurant.name}</p>
               <p class="card-text mb-1">Crusine: ${restaurant.foodType}</p>
-              <p class="card-text mb-1">Photos: ${restaurant.photos.length}</p>
               <p class="card-text mb-1">Reviews: ${restaurant.reviews.length}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="/restaurant/${restaurant._id}" class="btn btn-primary float-right">View</a>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal" id="${restaurant._id}">Add</button>
                 </div>
-
                 <small class="text-muted">ratings</small>
               </div>
             </div>
@@ -71,34 +68,7 @@ const getRestaurantTemplate = restaurant => {
 	`;
 };
 
-// const getRestaurantTemplate = restaurant => {
-// 	return `
-// 	<div class="col-md-4 mb-4">
-// 	    <div class="card">
-// 	        <img src="${restaurant.image}" class="card-img-top" alt="${restaurant.name}">
-// 	        <div class="card-body">
-// 	            <h5 class="card-title">${restaurant.name}</h5>
-// 	            <p class="card-text">${restaurant.foodType}</p>
-// 	            <a href="/restaurants/${restaurant._id}" class="btn btn-primary float-right">View Photos and Reviews</a>
-// 	        </div>
-// 	    </div>
-// 	</div> 
-// 	`;
-// };
 
-
-//Add Restaurant Photo
-// photoForm.addEventListener('submit', (event) => {
-// 	event.preventDefault();
-// 	const photoUser = document.querySelector('#photoUser');
-// 	const photoImage = document.querySelector('#photoImage');
-// 	const photoCaption = document.querySelector('#photoCaption');
-// 	// const restaurantId = event.target.id;
-// 	console.log(this);
-// 	console.log("testing")
-// 	// fetch('/api/restaurants/:id')
-
-// })
 $(function(){
 $('#photoSubmit').on("click",function(e) {
 	e.preventDefault();
@@ -151,23 +121,3 @@ if (user){
 	signButtons.style.display = "block";
 	logoutButton.style.display = "none";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

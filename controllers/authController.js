@@ -1,20 +1,8 @@
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 
-
 // POST Register - User Create
 const register = (req, res) => {
-  // Verify req.body Is Not Empty
-
-  // Query DB For Existing User By Email
-
-  // If foundUser, Respond with 400
-
-  // If No foundUser, Generate Salt and Hash User Password
-
-  // Replace newUser Plain Text Password with Hased Password
-
-  // Create newUser and Respond with 200
 	db.User.findOne({email: req.body.email}, (err, foundUser) => {
 		if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 
@@ -44,7 +32,6 @@ const register = (req, res) => {
 
 		});
 	});
-
 };
 
 

@@ -3,7 +3,6 @@ const Restaurant = require('./Restaurant');
 const Review = require('./Review');
 const Photo = require('./Photo');
 
-
 const restaurantSchema = new mongoose.Schema({
 	name: String,
 	image: String,
