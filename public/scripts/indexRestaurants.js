@@ -4,7 +4,6 @@ const photoForm = document.querySelector('#photoModal');
 const signButtons = document.querySelector('#loggedIn');
 const logoutButton = document.querySelector('#logOut');
 const welcome = document.querySelector('#userWelcome');
-
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
   	{center: {lat: 37.790882, lng: -122.401552},
@@ -36,7 +35,32 @@ const createMarkers = restaurant => {
 				lat: data.results[0].geometry.location.lat,
 				lng: data.results[0].geometry.location.lng
 			};
-			let marker = new google.maps.Marker({position: coords, map: map});
+
+			let contentString = `
+				<h5>${restaurant.name} </h5>
+				<p class=".lead">${restaurant.address}</p>
+                 <a href="https://www.google.com/maps/place/${restaurant.address}" class="btn btn-primary float-right">Get Direction</a>
+                 <a href="/restaurant/${restaurant._id}" class="btn btn-primary mr-2">View</a>
+
+			`;
+			let marker = new google.maps.Marker({
+				position: coords,
+				map: map,
+				animation: google.maps.Animation.DROP,
+			});
+
+			let infowindow = new google.maps.InfoWindow({
+				content: contentString
+        	});
+        	marker.addListener('click', function() {
+        		infowindow.open(map, marker);
+        		if (marker.getAnimation() !== null) {
+          		marker.setAnimation(null);
+        		} else {
+          		marker.setAnimation(google.maps.Animation.BOUNCE);
+       		 	}
+        	});
+
 	})
 	.catch((err) => console.log(err));
 };
@@ -117,4 +141,3 @@ if (user){
 }
 const welcomeUser = document.createTextNode(`Welcome, ${user.name}`);
 welcome.appendChild(welcomeUser);
-// }
