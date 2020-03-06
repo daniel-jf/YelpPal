@@ -40,6 +40,9 @@ const createMarkers = restaurant => {
 			let contentString = `
 				<h5>${restaurant.name} </h5>
 				<p class=".lead">${restaurant.address}</p>
+                 <a href="https://www.google.com/maps/place/${restaurant.address}" class="btn btn-primary float-right">Get Direction</a>
+                 <a href="/restaurant/${restaurant._id}" class="btn btn-primary mr-2">View</a>
+
 			`;
 			let marker = new google.maps.Marker({
 				position: coords,
