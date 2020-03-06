@@ -1,6 +1,5 @@
 const db = require('../models');
 
-
 const index = (req, res) => {
 	db.Restaurant.findById(req.params.id, (err, restaurants) => {
     if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
@@ -12,16 +11,15 @@ const index = (req, res) => {
 // returns an object
 const show = (req, res) => {
 	db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
-    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-	foundRestaurant.photos.forEach((photo, index) => {
-		if (photo._id == req.params.photoId) {
-			res.json(photo);
-			return ;
-		};		
-	});
+	    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+		foundRestaurant.photos.forEach((photo, index) => {
+			if (photo._id == req.params.photoId) {
+				res.json(photo);
+				return ;
+			};		
+		});
 	});
 };
-
 
 const create = (req, res) => {
 	db.Restaurant.findById(req.params.id, (err, foundRestaurant) => {
@@ -29,20 +27,17 @@ const create = (req, res) => {
     	db.Photo.create(req.body, (err, newPhoto) => {
     		if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
     		foundRestaurant.photos.push(newPhoto);
-    	foundRestaurant.save((err, savedRestaurant) => {
-    		if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-    		res.json(savedRestaurant.photos);
-    	})
+	    	foundRestaurant.save((err, savedRestaurant) => {
+	    		if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+	    		res.json(savedRestaurant.photos);
+	    	})
     	})
 	})	
 }
 
-
-
 const update = (req, res) => {
 	db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
     	if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-
 		foundRestaurant.photos.forEach((photo, index) => {
 			if (photo._id == req.params.photoId) {
 				//using spread syntax to merge req.body(new photo) with origianl photo
@@ -53,11 +48,8 @@ const update = (req, res) => {
 				})
 			};
 		});
-
 	});
 };
-
-
 
 // creating new array using filter to exclude the photo that nereds to be deleted and assigning new array to the old array
 const destroy = (req, res) => {
@@ -72,8 +64,6 @@ const destroy = (req, res) => {
 		})
 	});
 };
-
-
 
 module.exports = {
 	index,

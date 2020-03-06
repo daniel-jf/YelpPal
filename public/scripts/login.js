@@ -1,5 +1,4 @@
 console.log('Login JS...');
-console.log('Login JS...');
 const form = document.querySelector('.form-signin');
 
 // Submit Event Listener
@@ -66,4 +65,3 @@ function handleLoginSubmit(event) {
       .catch((err) => console.log(err));
   }
 }
-

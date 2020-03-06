@@ -9,8 +9,8 @@ const index = (req, res) => {
 
 const show = (req, res) => {
     db.Restaurant.findById(req.params.restaurantId, (err, foundReview) => {
-    if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-  	res.json(foundReview.reviews.id(req.params.reviewId))
+        if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+      	res.json(foundReview.reviews.id(req.params.reviewId))
     });
 };
 
@@ -29,7 +29,6 @@ const create = (req, res) => {
 const update = (req, res) => {
     db.Restaurant.findById(req.params.restaurantId, (err, foundRestaurant) => {
         if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
-        
         foundRestaurant.reviews.forEach((review, index) => {
             if (review._id == req.params.reviewId) {
                 foundRestaurant.reviews[index] = {...foundRestaurant.reviews[index], ...req.body};
@@ -56,9 +55,9 @@ const destroy = (req, res) => {
 };
 
 module.exports = {
-    index: index,
-    show: show,
-    create: create,
-    update: update,
-    destroy: destroy
+    index,
+    show,
+    create,
+    update,
+    destroy
 }
