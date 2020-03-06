@@ -26,7 +26,8 @@
 
 -----------------------------------------------------------------------------------
 #### User Story
-After signing up or in, the user is able to view and add reviews of restaurants connected with MealPal. When the user adds a review, they can add what they got and rate how it was.
+-After signing up or in, the user is able to view and add reviews of restaurants connected with MealPal. 
+-When the user adds a review, they can add what they got and rate how it was.
 
 -----------------------------------------------------------------------------------
 #### Existing Features
