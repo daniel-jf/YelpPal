@@ -13,40 +13,36 @@
     <script type="text/javascript" defer src="/scripts/indexRestaurants.js"></script>
     <title>Yelp-Pal!</title>
 </head>
-
-<!-- NAV BAR -->
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">YelpPal</a>
+  <nav class="navbar navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">YelpPal</a>
+    <label id="userWelcome" class="navbar-brand"></label>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-
+      <ul class="navbar-nav">
       </ul>
       <form id="loggedIn" class="form-inline mt-2 mt-md-0">
         <a type="button" class="btn btn-primary mr-4" href="/signin">Sign In</a>
         <a type="button" class="btn btn-primary mr-4" href="/signup">Sign Up</a>
       </form>
+      <div>
         <button id="logOut" type="button" class="btn btn-primary mr-4">Logout</button>
-
+      </div>
     </div>
   </nav>
 </header>
-
-<!-- JUMBOTRON -->
 <div class="jumbotron jumbotron-fluid">
-	<div class="container">
-  		<h1 class="display-4">YelpPal</h1>
-  		<p class="lead">Find Your Favorite YelpPal Restaurant</p>
-	</div>
+	<div>
+  		<h1 id="indexTitle" class="display-4">YelpPal</h1>
+  		<p id="indexP" class="lead">Review Your Favorite MealPal Restaurants and Orders!</p>
+  </div>
 </div>
 <body>
 <main>
 
-<!-- Restaurants section -->
-	<section class="container">
+  <section class="container">
     <div class="row">
         <div class="col-8">
             <div id="restaurant" class="row" class="col-8">
@@ -57,7 +53,6 @@
     </div>
 	</section>
 
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -67,7 +62,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <!-- Modal Body -->
       <div class="modal-body">
         <form id="photoModal">
             <label for="name" class="col-form-label">Your Name:</label>
@@ -89,7 +83,7 @@
 
 <footer class="footer">
   <div class="bg-dark fixed-bottom pb-3">
-    <span class="text-muted">Footer.</span>
+    <span class="text-muted text-center">Created by Dennis Chen and Daniel Francisco</span>
   </div>
 </footer>
 

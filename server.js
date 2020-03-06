@@ -4,18 +4,14 @@ const app = express();
 const PORT = process.envPORT || 4000;
 const db = require('./models');
 const routes = require('./routes');
-// Dependency for Auth
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-// Serve Public Assets
 app.use(express.static(__dirname + '/public'));
 
-// Init BodyParser
 app.use(bodyParser.json());
 
 
-//REQUEST LOGGER MIDDLEWEAR
 app.use((req,res,next) => {
     const url = req.url;
     const method = req.method;
@@ -25,7 +21,6 @@ app.use((req,res,next) => {
     next();
 });
 
-//Express Session
 app.use(session({
 	store: new MongoStore({
 		url: process.envMONGOD_URI || 'mongodb://localhost:27017/yelpPal'
@@ -38,8 +33,6 @@ app.use(session({
 	}
 }));
 
-
-//ROUTERS
 app.use('/', routes.views);
 app.use('/api', routes.api);
 
