@@ -117,4 +117,3 @@ if (user){
 }
 const welcomeUser = document.createTextNode(`Welcome, ${user.name}`);
 welcome.appendChild(welcomeUser);
-}
