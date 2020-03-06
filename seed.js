@@ -37,6 +37,26 @@ const restaurants = [
 	foodType: "Indian",
 	address: "28 2nd st",
 	reviews: reviews
+},{
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	name: "Cafe Tiramisu",
+	foodType: "Italian",
+	address: "28 Belden PI",
+	reviews: reviews
+},
+{
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	name: "Banana House",
+	foodType: "Thai",
+	address: "321 Kearny St",
+	reviews: reviews
+},
+{
+	image: "https://zabas.com/wp-content/uploads/2014/09/Placeholder-food.jpg",
+	name: "Schilling Cafe",
+	foodType: "American",
+	address: "667 Commercial St",
+	reviews: reviews
 }];
 
 
