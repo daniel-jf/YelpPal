@@ -1,16 +1,11 @@
-console.log('Login JS...');
 const form = document.querySelector('.form-signin');
-
-// Submit Event Listener
 form.addEventListener('submit', handleLoginSubmit);
 
-// Handle Submit
 function handleLoginSubmit(event) {
   let formIsValid = true;
   const userData = {};
   event.preventDefault();
 
-  // Clear Alert Messages
   document.querySelectorAll('.invalid-feedback').forEach((alert) => alert.remove());
 
  const formInputs = Array.from(form.elements);
@@ -18,9 +13,7 @@ function handleLoginSubmit(event) {
     input.classList.remove('is-invalid');
     if (input.type !== 'submit' && input.value === '') {
       formIsValid = false;
-      // Add Red Border to Input
       input.classList.add('is-invalid');
-      // Add Error Message Below Input
       input.insertAdjacentHTML('afterend', `
         <div class="invalid-feedback ${input.id}-message">
           Please enter your ${input.email}
@@ -28,9 +21,7 @@ function handleLoginSubmit(event) {
       `);
     } else if (input.type === 'password' && input.value.length < 4) {
         formIsValid = false;
-        // Add Red Border to Input
         input.classList.add('is-invalid');
-        // Add Error Message Below Input
         input.insertAdjacentHTML('afterend', `
           <div class="invalid-feedback ${input.id}-message">
             Password must be at least 4 characters
@@ -44,7 +35,6 @@ function handleLoginSubmit(event) {
   });
 
   if (formIsValid) {
-    // SUBMIT DATA TO SERVER
     console.log('Submitting User Data ---->', userData)
     fetch('/api/login', {
       method: 'POST',

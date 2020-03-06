@@ -13,18 +13,6 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <a class="navbar-brand" href="/">YelpPal</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-      
-            </ul>
-            <form class="form-inline mt-2 mt-md-0">
-              <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-            </form>
-          </div>
         </nav>
     </header>
 
@@ -53,18 +41,12 @@
               </div>
             </div>
           </div>
-
-
-    <!-- reviews template-->
-
-
         <div id="reviewSection" class="container">
           <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addReviewModal" id="addButton">Add Review</button>       
           <h2 class="text-center">Reviews</h2>
         </div>
   </main>
 
-<!-- Add Modal -->
 <div class="modal fade" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -74,34 +56,25 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <!-- Modal Body -->
       <div class="modal-body">
         <form id="addModalForm">
-          <!-- <div class="form-group"> -->
             <label for="name" class="col-form-label">Review:</label>
             <input type="text" class="form-control" id="description">
-          <!-- </div> -->
-          <!-- <div class="form-group"> -->
             <label for="image-url" class="col-form-label">rating :"1-5"</label>
             <input class="form-control" id="rating"></input>
-          <!-- </div>           -->
-          <!-- <div class="form-group"> -->
             <label for="caption" class="col-form-label">Your Name:</label>
             <input class="form-control" id="postedBy"></input>
-          <!-- </div> -->
           <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
            <button type="submit" id="addReviewSubmit"class="btn btn-primary">Submit</button>
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
 
 
-<!-- Update  Modal -->
 <div class="modal fade" id="updateReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -111,21 +84,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <!-- Modal Body -->
       <div class="modal-body">
         <form id="addModalForm">
-          <!-- <div class="form-group"> -->
             <label for="name" class="col-form-label">Review:</label>
             <input type="text" class="form-control" id="updateDescription">
-          <!-- </div> -->
-          <!-- <div class="form-group"> -->
             <label for="image-url" class="col-form-label">rating :"1-5"</label>
             <input class="form-control" id="updateRating"></input>
-          <!-- </div>           -->
-          <!-- <div class="form-group"> -->
             <label for="caption" class="col-form-label">Your Name:</label>
             <input class="form-control" id="updatePostedBy"></input>
-          <!-- </div> -->
           <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
            <button type="submit" id="updateReviewSubmit"class="btn btn-primary">Submit</button>
@@ -137,9 +103,7 @@
   </div>
 </div>
 
-
-
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    </html>
+</html>

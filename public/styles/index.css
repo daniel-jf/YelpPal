@@ -1,7 +1,17 @@
-
-#map {
- width: 200px;
- position: fixed;
- bottom:0px;
- right:0px;
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+#indexTitle{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+#indexP {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -30px;
+}
+.footer{
+    margin-top: 20px;
 }

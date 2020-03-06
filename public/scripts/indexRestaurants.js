@@ -1,25 +1,22 @@
 let user = JSON.parse(localStorage.getItem('currentUser'));
-console.log(user);
 const restaurantElement = document.querySelector('#restaurant');
 const photoForm = document.querySelector('#photoModal');
 const signButtons = document.querySelector('#loggedIn');
 const logoutButton = document.querySelector('#logOut');
+const welcome = document.querySelector('#userWelcome');
 
-// Creating map on page
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
   	{center: {lat: 37.790882, lng: -122.401552},
  	zoom: 14
- });
+});
 
-
-//init
 fetch('/api/restaurants')
 	.then((buffer) => buffer.json())
 	.then((data) => {
 		console.log(data);
 		render(data);
-	})
+})
 	.catch((err) => console.log(err));
 
 
@@ -28,11 +25,9 @@ function render(restaurantsArr) {
 		createMarkers(restaurant);
 		return getRestaurantTemplate(restaurant);
 	}).join('');
-
 	restaurantElement.insertAdjacentHTML('beforeend', restaurantTemplates);
 }
 
-// converting address to long and lat for google markers using google geocode api
 const createMarkers = restaurant => {
 	fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${restaurant.address}&key=AIzaSyCQMx6LmjsrCo30Uz6ExxdvDsOo08gv-Xk`)
 		.then((buffer) => buffer.json())
@@ -60,7 +55,6 @@ const getRestaurantTemplate = restaurant => {
                 <div class="btn-group">
                   <a href="/restaurant/${restaurant._id}" class="btn btn-primary float-right">View</a>
                 </div>
-                <small class="text-muted">ratings</small>
               </div>
             </div>
           </div>
@@ -72,7 +66,6 @@ const getRestaurantTemplate = restaurant => {
 $(function(){
 $('#photoSubmit').on("click",function(e) {
 	e.preventDefault();
-	console.log('beep')
 	const postReview = `/restaurants/${restaurant._id}/reviews`;
 		let info = {
 			postedBy: $('#photoUser').val(),
@@ -96,7 +89,6 @@ $('#photoSubmit').on("click",function(e) {
 });
 
 logoutButton.addEventListener('click', () => { 
-	console.log('test');
 	  fetch('/api/logout', {
 		method: 'DELETE',
 		headers: {
@@ -117,7 +109,12 @@ logoutButton.addEventListener('click', () => {
 if (user){
 	signButtons.style.display = "none";
 	logoutButton.style.display = "block";
+	welcome.style.display = "show";
 } else if (!user){
 	signButtons.style.display = "block";
 	logoutButton.style.display = "none";
+	welcome.style.display = "none";
+}
+const welcomeUser = document.createTextNode(`Welcome, ${user.name}`);
+welcome.appendChild(welcomeUser);
 }
