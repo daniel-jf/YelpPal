@@ -4,7 +4,6 @@ const photoForm = document.querySelector('#photoModal');
 const signButtons = document.querySelector('#loggedIn');
 const logoutButton = document.querySelector('#logOut');
 const welcome = document.querySelector('#userWelcome');
-
 let map;
 map = new google.maps.Map(document.getElementById('map'), 
   	{center: {lat: 37.790882, lng: -122.401552},
