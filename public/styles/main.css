@@ -3,11 +3,27 @@
     justify-content: center;
     padding-left: 10%;
     padding-right: 10%;
-}
-.imageTest {
-   height: 100%;
+    background-color: lightgray;
 }
 
+#indexTitle{
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+#indexP {
+    display: flex;
+    color: whitesmoke;
+    justify-content: center;
+    padding-top: 50px;
+    margin-bottom: -60px;
+}
+#indexPic{
+    background-image: url('../images/background-index-page.jpg');
+    padding-bottom: 60px;
+    margin-bottom: -60px;
+}
 div.container{
     border-width: thick;
     background-color:  rgba(245,245,245,0.8);
@@ -22,4 +38,7 @@ div.container{
 }
 #addButton{
     margin-top: 20px;
+}
+.jumbotron{
+    margin-bottom: 0px;
 }
