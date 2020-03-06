@@ -9,8 +9,8 @@
 
 -------------------------------------------
 #### What is YelpPal?
+- YelpPal is a reviewing website for MealPal restaurants. Where you can find the best rated and best portion meals from others without wasted meals.
 
-- 
 -------------------------------------------
 
 #### Technologies Stack
@@ -33,17 +33,23 @@
 
 -----------------------------------------------------------------------------------
 #### Existing Features
-
+- Add Review
+- Update Review
+- Delete Review
+- Login with authentification
 
 -----------------------------------------------------------------------------------
 #### Planned Features
-
-
+- Add, Edit, and Delete Restaurant
+- Post Photos
+- Extra map features
+- Admin rights
 
 -------------------------------------------------------------------------------------------
 
 #### License
 © Dennis Chen
+
 © Daniel Francisco
 
 
