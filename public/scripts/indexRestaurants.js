@@ -59,9 +59,8 @@ const getRestaurantTemplate = restaurant => {
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="/restaurant/${restaurant._id}" class="btn btn-primary float-right">View</a>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal" id="${restaurant._id}">Add</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target= "#exampleModal" id="${restaurant._id}">Add</button>
                 </div>
-
                 <small class="text-muted">ratings</small>
               </div>
             </div>
@@ -123,6 +122,11 @@ $('#photoSubmit').on("click",function(e) {
 	e.preventDefault();
 	});
 });
+
+
+///Adding crud to restaurantss
+
+
 
 
 
