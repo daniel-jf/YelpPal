@@ -72,7 +72,7 @@ const getRestaurantTemplate = restaurant => {
           <div class="card mb-4 shadow-sm">
           	<img src="${restaurant.image}" class="card-img-top" alt="${restaurant.name}">
             <div class="card-body">
-              <p class="card-text mb-1 font-weight-">${restaurant.name}</p>
+              <p class="card-text mb-1 font-weight-bold">${restaurant.name}</p>
               <p class="card-text mb-1">Crusine: ${restaurant.foodType}</p>
               <p class="card-text mb-1">Reviews: ${restaurant.reviews.length}</p>
               <div class="d-flex justify-content-between align-items-center">

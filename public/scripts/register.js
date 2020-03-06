@@ -1,5 +1,7 @@
 console.log('Register JS...');
+// const ctrl = require('../../controllers');
 const form = document.getElementById('signup');
+
 
 form.addEventListener('click', handleSignupSubmit);
 
@@ -51,5 +53,9 @@ function handleSignupSubmit(event) {
         window.location = '/login';
       })
       .catch((err) => console.log(err));
+
+    //testing
+    // ctrl.auth.register();
+    // window.location = '/login';
   }
 }
