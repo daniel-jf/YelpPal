@@ -5,7 +5,7 @@
 -------------------------------------------
 
 <img src="/assets/images/singup_page.png" width="300px"></img>
-<img src="/assets/images/signin_age.png" width="300px"></img>
+<img src="/assets/images/signin_page.png" width="300px"></img>
 <img src="/assets/images/main_page.png" width="300px"></img>
 <img src="/assets/images/review_page.png" width="300px"></img>
 
