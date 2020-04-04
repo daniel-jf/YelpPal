@@ -4,10 +4,10 @@
 
 -------------------------------------------
 
-<img src="/assets/singup_page.jpg" width="300px"></img>
-<img src="/assets/signin_age.jpg" width="300px"></img>
-<img src="/assets/main_page.jpg" width="300px"></img>
-<img src="/assets/review_page.jpg" width="300px"></img>
+<img src="/assets/images/singup_page.jpg" width="300px"></img>
+<img src="/assets/images/signin_age.jpg" width="300px"></img>
+<img src="/assets/images/main_page.jpg" width="300px"></img>
+<img src="/assets/images/review_page.jpg" width="300px"></img>
 
 -------------------------------------------
 #### What is YelpPal?
